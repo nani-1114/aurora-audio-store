@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Checkout — Aurora Audio" />
+  <title>Checkout | Aurora Audio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
+</head>
+<body data-page="checkout">
+  <header class="site-header">
+    <a href="index.html" class="logo">Aurora<span>Audio</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#shop">Shop</a>
+      <a href="checkout.html" class="active nav-cart">
+        Cart
+        <span class="header-cart-count" id="header-cart-count" hidden>0</span>
+      </a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="checkout-page">
+    <h1>Checkout</h1>
+    <p class="checkout-steps">Cart → Details → Confirm</p>
+
+    <div class="checkout-layout">
+      <section class="checkout-cart" aria-labelledby="cart-heading">
+        <h2 id="cart-heading">Your cart</h2>
+        <div id="cart-empty" class="cart-empty" hidden>
+          <p>Your cart is empty.</p>
+          <a href="index.html#shop" class="btn btn-primary">Continue shopping</a>
+        </div>
+        <ul class="cart-items" id="cart-items"></ul>
+      </section>
+
+      <aside class="checkout-sidebar">
+        <div class="order-summary">
+          <h2>Order summary</h2>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summary-subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="summary-shipping">$0.00</span>
+          </div>
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <span id="summary-total">$0.00</span>
+          </div>
+        </div>
+
+        <form class="checkout-form" id="checkout-form">
+          <h2>Shipping details</h2>
+          <div class="form-row">
+            <label for="full-name">Full name</label>
+            <input type="text" id="full-name" name="fullName" required autocomplete="name" />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="checkout-email" name="email" required autocomplete="email" />
+          </div>
+          <div class="form-row">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required autocomplete="street-address" />
+          </div>
+          <div class="form-row two-col">
+            <div>
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" required />
+            </div>
+            <div>
+              <label for="zip">ZIP code</label>
+              <input type="text" id="zip" name="zip" required pattern="[0-9A-Za-z\s-]{3,12}" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="place-order" disabled>
+            Place order
+          </button>
+        </form>
+      </aside>
+    </div>
+
+    <section id="order-success" class="order-success" hidden>
+      <div class="success-card">
+        <span class="success-icon" aria-hidden="true">✓</span>
+        <h2>Order placed!</h2>
+        <p id="success-message">Thank you for your purchase.</p>
+        <a href="index.html" class="btn btn-primary">Back to home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="copyright">© 2026 Aurora Audio</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/checkout-page.js"></script>
+</body>
+</html>
